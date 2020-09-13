@@ -34,14 +34,30 @@
     <body>
         
         <div class="container">
-            <nav class="navbar fixed-top navbar-light bg-dark">
+            <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-dark">
                 <a class="navbar-brand mb-0 text-light h1" href="#">Sharif Nasser</a>
-                <form class="form-inline">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
+                
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                      <li class="nav-item active">
+                        <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link text-light" href="#bio">Bio</a>
+                      </li>
+                    </ul>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
+                </div>
             </nav>
         </div>
+
         <div class="container">
             <div class="row">
                 <aside class="col-md-5">
@@ -64,13 +80,14 @@
                         <a class="text-dark" href="https://twitter.com/sharif_nasser"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                     </p>
                 </aside>
+                
                 <main class="col-md-5">
                     <p>
                         <a href="./sharif.jpg">
                             <img src="./sharif.jpg" alt="Sharif Nasser" class="rounded-sm" style="width: 100%">
                         </a>
                     </p>
-                    <p style="font-family: Roboto; font-size: large;">
+                    <p id="bio" style="font-family: Roboto; font-size: large;">
                         Sharif is a 4th-year Digital System and Robotics student at Tecnológico de Monterrey in México. 
                         During his undergraduate studies, he has participated in several extracurricular activities that allowed him to lead 
                         student groups, volunteer as an instructor for young people, become a student ambassador, and work as an Industry 4.0 Intern.
