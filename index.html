@@ -118,6 +118,12 @@
                 </div>
             </div>
         </div>
+
+        <div id="app2">
+            <div class="container mr-5">
+                <h2>{{message}}</h2>
+            </div>
+        </div>
         
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
@@ -150,6 +156,12 @@
                             { name: "thinking ", info: "..." }
                         ]
                     }
+                }
+            })
+            var vm2 = new Vue({
+                el: '#app2',
+                data: {
+                    message: 'Hello Vue!'
                 }
             })
         </script>
