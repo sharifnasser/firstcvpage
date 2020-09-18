@@ -58,8 +58,8 @@
                         </li>
                         </ul>
                         <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            <input class="form-control mr-sm-2" type="search" v-model="searchBar" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" @click.prevent="viewMsg">Click here</button>
                         </form>
                     </div>
                 </nav>
@@ -108,6 +108,7 @@
                             As a soon graduate, his goals include joining a company that seeks to shape a better world for everyone, 
                             pursuing a master's degree involving research experience, and empowering people - <b>probably not in that order.</b>
                         </p>
+                        <h2 v-show="showMsg">Thank you {{searchBar}}</h2>
                     </main>
                 </div>
             </div>
@@ -118,14 +119,22 @@
             var vm = new Vue({
                 el: '#app',
                 data: {
-                    showBio: false
+                    searchBar: "type your name here",
+                    showBio: false,
+                    showMsg: false
                 },
                 methods: {
                     viewBio: function() {
                         this.showBio = true
+                        this.showMsg = false
                     },
                     hideBio: function() {
                         this.showBio = false
+                        this.showMsg = false
+                    },
+                    viewMsg: function() {
+                        this.showBio = false
+                        this.showMsg = true
                     }
                 }
             })
