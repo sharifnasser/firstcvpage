@@ -86,6 +86,11 @@
                             <a class="text-dark" href="https://www.instagram.com/sharif_nasser"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             <a class="text-dark" href="https://twitter.com/sharif_nasser"><i class="fa fa-twitter" aria-hidden="true"></i></a>
                         </p>
+                        <h4 class="mb-3 font-weight-normal">Some hobbies</h4>
+                        <p
+                            v-for="hobbie in hobbies()"
+                            v-html="hobbie.name + ' ' + hobbie.info"
+                        ></p>
                     </aside>
                     
                     <main class="col-md-5">
@@ -121,7 +126,8 @@
                 data: {
                     searchBar: "type your name here",
                     showBio: false,
-                    showMsg: false
+                    showMsg: false,
+                    hobbie: ""
                 },
                 methods: {
                     viewBio: function() {
@@ -135,6 +141,14 @@
                     viewMsg: function() {
                         this.showBio = false
                         this.showMsg = true
+                    },
+                    hobbies: function () {
+                        return [
+                            { name: "learning" , info: "tech and non-tech skills"},
+                            { name: "teaching" , info: "tech to anyone"},
+                            { name: "mentoring" , info: "learn-it-alls who contacts me"},
+                            { name: "thinking ", info: "..." }
+                        ]
                     }
                 }
             })
