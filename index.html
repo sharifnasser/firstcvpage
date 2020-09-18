@@ -28,39 +28,43 @@
             .fa:hover {
                 opacity: 0.5;
             }
-            </style>
+
+            [v-cloak] {
+                display: none;
+            }
+        </style>
 
             
     </head>
 
     <body>
-        
-        <div class="container">
-            <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-dark">
-                <a class="navbar-brand mb-0 text-light h1" href="#">Sharif Nasser</a>
-                
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                      <li class="nav-item active">
-                        <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link text-light" href="#bio">Bio</a>
-                      </li>
-                    </ul>
-                    <form class="form-inline">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-            </nav>
-        </div>
-
         <div id="app">
+            <div class="container">
+                <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-dark">
+                    <a class="navbar-brand mb-0 text-light h1" href="#">Sharif Nasser</a>
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link text-light" href="#">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <!-- @ is the same as using v-on: -->
+                            <a class="nav-link text-light" href="#bio" @click.prevent="viewBio">Bio</a>
+                        </li>
+                        </ul>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+                    </div>
+                </nav>
+            </div>
+
             <div class="container">
                 <div class="row">
                     <aside class="col-md-5">
@@ -90,7 +94,8 @@
                                 <img src="./sharif.jpg" alt="Sharif Nasser" class="rounded-sm" style="width: 100%">
                             </a>
                         </p>
-                        <p id="bio" style="font-family: Roboto; font-size: large;">
+                        <!-- Recommended to change the v-if to v-shpw -->
+                        <p v-if="showBio" v-cloak id="bio" style="font-family: Roboto; font-size: large;">
                             Sharif is a 4th-year Digital System and Robotics student at Tecnológico de Monterrey in México. 
                             During his undergraduate studies, he has participated in several extracurricular activities that allowed him to lead 
                             student groups, volunteer as an instructor for young people, become a student ambassador, and work as an Industry 4.0 Intern.
@@ -110,10 +115,15 @@
         
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <script>
-            new Vue({
+            var vm = new Vue({
                 el: '#app',
                 data: {
-                    
+                    showBio: false
+                },
+                methods: {
+                    viewBio: function() {
+                        this.showBio = !this.showBio
+                    }
                 }
             })
         </script>
