@@ -11,6 +11,11 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 app.use(express.json());
 
+// Routes
+app.get('/', (req, res) => {
+    res.send('Home is running!')
+});
+
 // Database connection
 const connection = mysql.createConnection({
     host: '127.0.0.1',
