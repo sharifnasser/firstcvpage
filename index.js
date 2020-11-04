@@ -25,6 +25,17 @@ app.get('/education', (req, res) => {
 });
 
 app.get('/experience', (req, res) => {
+    const sql = 'SELECT * FROM experience';
+    connection.query(sql, function (err, result, fields) {
+        if (err) throw err;
+        if (result.length > 0) {
+            console.log(result);
+            res.json(result);
+        } else {
+            console.log('Vacio');
+        }
+      });
+    
     res.send('Experience is running!');
 });
 
