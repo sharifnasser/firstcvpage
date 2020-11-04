@@ -89,3 +89,64 @@ module.exports = {
     server.close()
   }
 }
+
+// Database
+const loader = express();
+const mysql = require('mysql');
+const morgan = require('morgan');
+
+// Settings
+loader.set('port', process.env.PORT || 3000);
+// Middlewares
+loader.use(morgan('dev'));
+loader.use(express.json());
+
+// Routes
+loader.get('/', (req, res) => {
+    res.send('Home is running!');
+});
+
+loader.get('/bio', (req, res) => {
+    res.send('Bio is running!');
+});
+
+loader.get('/education', (req, res) => {
+    res.send('Education is running!');
+});
+
+loader.get('/experience', (req, res) => {
+    const sql = 'SELECT * FROM experience';
+    connection.query(sql, function (err, result, fields) {
+        if (err) throw err;
+        if (result.length > 0) {
+            console.log(result);
+            res.json(result);
+        } else {
+            console.log('Vacio');
+        }
+      });
+    
+    res.send('Experience is running!');
+});
+
+loader.get('/speaking', (req, res) => {
+    res.send('Speaking is running!');
+});
+
+// Database connection
+const connection = mysql.createConnection({
+    host: '127.0.0.1',
+    user: 'root',
+    password: '',
+    database: 'firstcvpage'
+});
+
+connection.connect( function(err) {
+    if (err) throw err;
+    console.log("Database connected");
+});
+
+// Server is listening
+loader.listen(loader.get('port'), () => {
+  console.log(`Server is listening on port ${loader.get('port')}`);
+});
