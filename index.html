@@ -1,175 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head land="en">
-        <!-- Required meta tags -->
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-        <!-- Add icon library -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <!-- Add font family -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
-        <title>0367</title>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>firstcvpage</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/favicon-16x16.png">
+    <!--[if IE]><link rel="shortcut icon" href="/static/img/icons/favicon.ico"><![endif]-->
+    <!-- Add to home screen for Android and modern mobile browsers -->
+    <link rel="manifest" href="<%= htmlWebpackPlugin.files.publicPath %>static/manifest.json">
+    <meta name="theme-color" content="#4DBA87">
 
-        <style>
-            body { padding-top: 70px; }
-
-            /* Style all font awesome icons */
-            .fa {
-                padding: 20px;
-                font-size: 30px;
-                width: 50px;
-                text-align: center;
-                text-decoration: none;
-            }
-
-            /* Add a hover effect if you want */
-            .fa:hover {
-                opacity: 0.5;
-            }
-
-            [v-cloak] {
-                display: none;
-            }
-        </style>
-
-            
-    </head>
-
-    <body>
-        <div id="app">
-            <div class="container">
-                <nav class="navbar fixed-top navbar-expand-sm navbar-light bg-dark">
-                    <a class="navbar-brand mb-0 text-light h1" href="#">Sharif Nasser</a>
-                    
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link text-light" href="#" @click.prevent="hideBio">Home<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <!-- @ is the same as using v-on: -->
-                            <a class="nav-link text-light" href="#bio" @click.prevent="viewBio">Bio</a>
-                        </li>
-                        </ul>
-                        <form class="form-inline">
-                            <input class="form-control mr-sm-2" type="search" v-model="searchBar" aria-label="Search">
-                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" @click.prevent="viewMsg">Click here</button>
-                        </form>
-                    </div>
-                </nav>
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <aside class="col-md-5">
-                        <h3 class="mb-1 text-muted">first CV page of</h3>
-                        <h1 class="mb-1">
-                            <a href="#">Sharif Nasser</a>
-                        </h1>
-                        <h3 class="mb-5 font-weight-light">
-                            Robotics Student<br>
-                            Microsof Learn Student Ambassador<br>
-                            GitKraken Ambassador
-                        </h3>
-                        <h4 class="mb-0 font-weight-normal">
-                            <a href="mailto:sharifnasser@gmail.com">sharifnasser@gmail.com</a>
-                        </h4>
-                        <p class="mb-0">
-                            <a class="text-dark" href="https://www.linkedin.com/in/sharifnasser"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
-                            <a class="text-dark" href="https://github.com/sharifnasser"><i class="fa fa-github" aria-hidden="true"></i></a>
-                            <a class="text-dark" href="https://www.instagram.com/sharif_nasser"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                            <a class="text-dark" href="https://twitter.com/sharif_nasser"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                        </p>
-                        <h4 class="mb-3 font-weight-normal">Some hobbies</h4>
-                        <p
-                            v-for="hobby in hobbies()"
-                            v-html="hobby.name + ' ' + hobby.info"
-                        ></p>
-                    </aside>
-                    
-                    <main class="col-md-5">
-                        <p>
-                            <a href="./sharif.jpg">
-                                <img src="./sharif.jpg" alt="Sharif Nasser" class="rounded-sm" style="width: 100%">
-                            </a>
-                        </p>
-                        <!-- Recommended to change the v-if to v-shpw -->
-                        <p v-if="showBio" v-cloak id="bio" style="font-family: Roboto; font-size: large;">
-                            Sharif is a 4th-year Digital System and Robotics student at Tecnológico de Monterrey in México. 
-                            During his undergraduate studies, he has participated in several extracurricular activities that allowed him to lead 
-                            student groups, volunteer as an instructor for young people, become a student ambassador, and work as an Industry 4.0 Intern.
-                            <br> <br>
-                            Driven by his passion for technology and education, Sharif joined the Microsoft Student Partners (now Microsoft Learn Student Ambassadors) 
-                            program last year. Since then, he takes pride in teaching and amplifying his impact on hundreds of young and adult Latin Americans who have 
-                            attended his events. Currently, he also serves as a Peer Mentor for first-year students and dedicates his free time to learn about AI and 
-                            Deep Learning. 
-                            <br> <br>
-                            As a soon graduate, his goals include joining a company that seeks to shape a better world for everyone, 
-                            pursuing a master's degree involving research experience, and empowering people - <b>probably not in that order.</b>
-                        </p>
-                        <h2 v-show="showMsg" v-cloak>Thank you {{searchBar}}</h2>
-                    </main>
-                </div>
-            </div>
-        </div>
-
-        <div id="app2">
-            <div class="container mr-5">
-                <h2>{{message}}</h2>
-            </div>
-        </div>
-        
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-        <script>
-            var vm = new Vue({
-                el: '#app',
-                data: {
-                    searchBar: "type your name here",
-                    showBio: false,
-                    showMsg: false,
-                    hobby: ""
-                },
-                methods: {
-                    viewBio: function() {
-                        this.showBio = true
-                        this.showMsg = false
-                    },
-                    hideBio: function() {
-                        this.showBio = false
-                        this.showMsg = false
-                    },
-                    viewMsg: function() {
-                        this.showBio = false
-                        this.showMsg = true
-                    },
-                    hobbies: function () {
-                        return [
-                            { name: "learning" , info: "tech and non-tech skills"},
-                            { name: "teaching" , info: "tech to anyone"},
-                            { name: "mentoring" , info: "learn-it-alls"},
-                            { name: "thinking ", info: "..." }
-                        ]
-                    }
-                }
-            })
-            var vm2 = new Vue({
-                el: '#app2',
-                data: {
-                    message: 'Hello Vue!'
-                }
-            })
-        </script>
-
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    </body>
+    <!-- Add to home screen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="firstcvpage">
+    <link rel="apple-touch-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/apple-touch-icon-152x152.png">
+    <link rel="mask-icon" href="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/safari-pinned-tab.svg" color="#4DBA87">
+    <!-- Add to home screen for Windows -->
+    <meta name="msapplication-TileImage" content="<%= htmlWebpackPlugin.files.publicPath %>static/img/icons/msapplication-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <% for (var chunk of webpack.chunks) {
+        for (var file of chunk.files) {
+          if (file.match(/\.(js|css)$/)) { %>
+    <link rel="<%= chunk.initial?'preload':'prefetch' %>" href="<%= htmlWebpackPlugin.files.publicPath + file %>" as="<%= file.match(/\.css$/)?'style':'script' %>"><% }}} %>
+  </head>
+  <body>
+    <noscript>
+      This is your fallback content in case JavaScript fails to load.
+    </noscript>
+    <div id="app"></div>
+    <!-- Todo: only include in production -->
+    <%= htmlWebpackPlugin.options.serviceWorkerLoader %>
+    <!-- built files will be auto injected -->
+  </body>
 </html>
