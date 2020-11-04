@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/sharifnasser/firstcvpage/issues"
   },
-  "homepage": "https://github.com/sharifnasser/firstcvpage#readme"
+  "homepage": "https://github.com/sharifnasser/firstcvpage#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6"
+  }
 }
