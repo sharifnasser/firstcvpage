@@ -40,8 +40,8 @@ const connection = mysql.createConnection({
     database: 'firstcvpage'
 });
 
-connection.connect( error => {
-    if (error) throw error;
+connection.connect( function(err) {
+    if (err) throw err;
     console.log("Database connected");
 });
 
