@@ -94,12 +94,14 @@ module.exports = {
 const loader = express();
 const mysql = require('mysql');
 const morgan = require('morgan');
+const cors = require('cors');
 
 // Settings
 loader.set('port', process.env.PORT || 3000);
 // Middlewares
 loader.use(morgan('dev'));
 loader.use(express.json());
+loader.use(cors())
 
 // Routes
 loader.get('/', (req, res) => {
@@ -107,30 +109,51 @@ loader.get('/', (req, res) => {
 });
 
 loader.get('/bio', (req, res) => {
-    res.send('Bio is running!');
+  const sql = 'SELECT * FROM bio';
+  connection.query(sql, function (err, result) {
+      if (err) throw err;
+      if (result.length > 0) {
+          res.json(result);
+      } else {
+          console.log('Vacio');
+      }
+    });
 });
 
 loader.get('/education', (req, res) => {
-    res.send('Education is running!');
+  const sql = 'SELECT * FROM education';
+  connection.query(sql, function (err, result) {
+      if (err) throw err;
+      if (result.length > 0) {
+          res.json(result);
+      } else {
+          console.log('Vacio');
+      }
+    });
 });
 
 loader.get('/experience', (req, res) => {
     const sql = 'SELECT * FROM experience';
-    connection.query(sql, function (err, result, fields) {
+    connection.query(sql, function (err, result) {
         if (err) throw err;
         if (result.length > 0) {
-            console.log(result);
             res.json(result);
         } else {
             console.log('Vacio');
         }
       });
-    
-    res.send('Experience is running!');
 });
 
 loader.get('/speaking', (req, res) => {
-    res.send('Speaking is running!');
+  const sql = 'SELECT * FROM speaking';
+  connection.query(sql, function (err, result) {
+      if (err) throw err;
+      if (result.length > 0) {
+          res.json(result);
+      } else {
+          console.log('Vacio');
+      }
+    });
 });
 
 // Database connection

@@ -8,19 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Add font family -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
-    <title>Sharif Nasser</title>
     
     <div class="container">
-      <div class="row">
-        <aside class="col-md-5">
-            <h3 class="mb-1 text-muted">first CV page of</h3>
+      <div class="row mt-5">
+        <aside class="col-md-5  text-center text-md-right">
+            <h3 class="mb-1 text-muted font-weight-light">first CV page of</h3>
             <h1 class="mb-1">
                 <a href="#">Sharif Nasser</a>
             </h1>
             <h3 class="mb-5 font-weight-light">
-                Robotics Student<br>
+                Robotics & Digital Systems Student<br>
                 Microsof Learn Student Ambassador<br>
-                GitKraken Ambassador
+                <a href="https://www.tec.mx/">Tecnológico de Monterrey</a>
             </h3>
             <h4 class="mb-0 font-weight-normal">
                 <a href="mailto:sharifnasser@gmail.com">sharifnasser@gmail.com</a>
@@ -33,19 +32,20 @@
             </p>
         </aside>
         
-        <main class="col-md-5">
+        <main class="col-md-7 text-center">
             <p>
                 <a href="./assets/sharif.jpg">
-                    <img src="./assets/sharif.jpg" alt="Sharif Nasser" class="rounded-sm" style="width: 100%">
+                    <img src="./assets/sharif.jpg" alt="Sharif Nasser" class="rounded-sm" style="max-width: 75%">
                 </a>
             </p>
         </main>
       </div>    
     </div>
+    <router-view></router-view>
   </div>
 </template>
 
-<script>
+<script scoped>
 export default {
   name: 'app'
 }
